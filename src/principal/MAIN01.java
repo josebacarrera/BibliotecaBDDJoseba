@@ -86,6 +86,26 @@ public class MAIN01 {
 				borrar();
 				break;
 	
+			case 6:
+				
+				break;
+				
+			case 7:
+				
+				break;
+				
+			case 8:
+		
+				break;
+		
+			case 9:
+		
+				break;
+		
+			case 10:
+		
+				break;
+				
 			case 0:
 				System.out.println("El programa se ha cerrado....");
 				break;

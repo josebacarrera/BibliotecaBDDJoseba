@@ -1,8 +1,6 @@
 package modelo.dao;
 
 import java.util.*;
-
-
 import modelo.bin.*;
 import modelo.dao.*;
 import modelo.*;

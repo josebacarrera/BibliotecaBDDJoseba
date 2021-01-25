@@ -91,7 +91,6 @@ public class Socio {
 	}
 
 	
-	
 	//METODOS
 	
 	//METODOS SELECT
