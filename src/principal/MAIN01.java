@@ -18,9 +18,16 @@ public class MAIN01 {
 
 	public static void main(String[] args) {
 		
+		//LIBRO
 		ArrayList <Libro> Lista = new ArrayList<Libro>();
 		
 		LibroModelo LM = new LibroModelo();
+		
+		//SOCIO
+		ArrayList <Socio> Soci = new ArrayList<Socio>();
+		
+		SocioModelo sm = new SocioModelo();
+		
 		
 		
 		
@@ -87,11 +94,22 @@ public class MAIN01 {
 				break;
 	
 			case 6:
-				
+				Soci = sm.selectAllSocios();
+				for (int i = 0; i < Soci.size(); i++) {
+					
+					System.out.println(Soci.get(i).toString());
+				} 
 				break;
 				
 			case 7:
+				ArrayList<Socio> Soci2;
 				
+				Soci2=sm.buscarSocios();
+				
+				for (int i = 0; i < Soci2.size(); i++) {
+					
+					System.out.println(Soci2.get(i).toString());
+				} 
 				break;
 				
 			case 8:
