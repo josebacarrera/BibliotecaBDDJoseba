@@ -91,11 +91,11 @@ public class MAIN01 {
 			break;
 				
 			case 4:
-				update();
+				updateLibro();
 				break;
 	
 			case 5:
-				borrar();
+				borrarLibro();
 				break;
 	
 			case 6:
@@ -118,15 +118,15 @@ public class MAIN01 {
 				break;
 				
 			case 8:
-		
+				sm.verSocio();
 				break;
 		
 			case 9:
-		
+				updateSocio();
 				break;
 		
 			case 10:
-		
+				borrarSocio();
 				break;
 				
 			case 0:
@@ -148,7 +148,7 @@ public class MAIN01 {
 		
 	}
 	
-	private static void update() {
+	private static void updateLibro() {
 	
 	LibroModelo LM = new LibroModelo();
 	String titulo;
@@ -162,7 +162,7 @@ public class MAIN01 {
 	
 	}
 	
-	private static void borrar() {
+	private static void borrarLibro() {
 		
 		LibroModelo LM = new LibroModelo();
 		int id;
@@ -172,6 +172,34 @@ public class MAIN01 {
 		LM.borrarLibro(id);
 		
 		}
+	
+	private static void updateSocio() {
+		
+		SocioModelo sm = new SocioModelo();
+		String direccion,pueblo,provincia;
+		int dni;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Escribe el dni(EN MAYUSCULAS)");
+		dni = Integer.parseInt(sc.nextLine());
+		System.out.println("Escribe la direccion(EN MAYUSCULAS)");
+		direccion = sc.nextLine();
+		System.out.println("Escribe el nombre del pueblo(EN MAYUSCULAS)");
+		pueblo = sc.nextLine();
+		System.out.println("Escribe el nombre de la provincia(EN MAYUSCULAS)");
+		provincia = sc.nextLine();
+		sm.actualizarSocio(direccion,pueblo,provincia,dni);
+		
+		}
+		private static void borrarSocio() {
+			
+			SocioModelo sm = new SocioModelo();
+			int dni;
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Introduce el dni(EN MAYUSCULAS)");
+			dni= Integer.parseInt(sc.nextLine());
+			sm.borrarSocio(dni);
+			
+			}
 	
 
 }
