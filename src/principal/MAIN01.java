@@ -48,6 +48,11 @@ public class MAIN01 {
 			System.out.println("3-Ver libros");
 			System.out.println("4-Editar libro");
 			System.out.println("5-Eliminar libro");
+			System.out.println("6-Listar socios");
+			System.out.println("7-Buscar socios");
+			System.out.println("8-Ver socios");
+			System.out.println("9-Editar socios");
+			System.out.println("10-Eliminar socio");
 			System.out.println("0-Para cerrar el programa");
 			
 			

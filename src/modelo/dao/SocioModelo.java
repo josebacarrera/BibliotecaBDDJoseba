@@ -53,13 +53,13 @@ public class SocioModelo extends Conector {
 
 		try {
 
-			System.out.println("Escribe una parte del libro(EN MAYUSCULAS)");
+			System.out.println("Escribe una parte del nombre(EN MAYUSCULAS)");
 			Scanner sc = new Scanner(System.in);
 			String elegir;
 			elegir = sc.nextLine();
 
 			Statement st = super.conexion.createStatement();
-			ResultSet rs = st.executeQuery("select * from socios where nombre or apellido like '%" + elegir + "%'");
+			ResultSet rs = st.executeQuery("select * from socios where nombre like '%" + elegir + "%'");
 
 			while (rs.next()) {
 
