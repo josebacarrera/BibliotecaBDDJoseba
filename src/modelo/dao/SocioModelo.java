@@ -124,39 +124,47 @@ public class SocioModelo extends Conector {
 
 	}
 
-	public void actualizarSocio(String direccion,String pueblo,String provincia,int dni) {
+	public void actualizarSocio(String direccion,String poblacion,String provincia,String dni) {
 
-		System.out.println("Escribe el dni del socio(EN MAYUSCULAS)");
-		Scanner sc = new Scanner(System.in);
-		String elegir;
-		elegir = sc.nextLine();
+		//System.out.println("Escribe el dni del socio(EN MAYUSCULAS)");
+		//Scanner sc = new Scanner(System.in);
+		//String elegir;
+		//elegir = sc.nextLine();
 		
 		PreparedStatement pst;
 		try {
 			pst = super.conexion.prepareStatement("update socios set direccion=? where dni=?");
 			pst.setString(1, direccion);
-			pst.setInt(2, dni);
-			pst = super.conexion.prepareStatement("update socios set pueblo=? where dni=?");
-			pst.setString(1, pueblo);
-			pst.setInt(2, dni);
+			pst.setString(2, dni);
+			
+			pst.executeUpdate();
+			
+			pst = super.conexion.prepareStatement("update socios set poblacion=? where dni=?");
+			pst.setString(1, poblacion);
+			pst.setString(2, dni);
+			
+			pst.executeUpdate();
+			
 			pst = super.conexion.prepareStatement("update socios set provincia=? where dni=?");
 			pst.setString(1, provincia);
-			pst.setInt(2, dni);
+			pst.setString(2, dni);
 		
 			pst.executeUpdate();
 
+			System.out.println("Los datos se han modificado correctamente");
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
 	}
 
-	public void borrarSocio(int dni) {
+	public void borrarSocio(String dni) {
 
 		PreparedStatement pst;
 		try {
 			pst = (PreparedStatement) super.conexion.prepareStatement("delete from socios where dni=?");
-			pst.setInt(1, dni);
+			pst.setString(1, dni);
 			pst.execute();
 
 		} catch (SQLException e) {

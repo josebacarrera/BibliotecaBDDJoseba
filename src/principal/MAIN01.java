@@ -176,27 +176,27 @@ public class MAIN01 {
 	private static void updateSocio() {
 		
 		SocioModelo sm = new SocioModelo();
-		String direccion,pueblo,provincia;
-		int dni;
+		String direccion,poblacion,provincia;
+		String dni;
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Escribe el dni(EN MAYUSCULAS)");
-		dni = Integer.parseInt(sc.nextLine());
+		dni = sc.nextLine();
 		System.out.println("Escribe la direccion(EN MAYUSCULAS)");
 		direccion = sc.nextLine();
 		System.out.println("Escribe el nombre del pueblo(EN MAYUSCULAS)");
-		pueblo = sc.nextLine();
+		poblacion = sc.nextLine();
 		System.out.println("Escribe el nombre de la provincia(EN MAYUSCULAS)");
 		provincia = sc.nextLine();
-		sm.actualizarSocio(direccion,pueblo,provincia,dni);
+		sm.actualizarSocio(direccion,poblacion,provincia,dni);
 		
 		}
 		private static void borrarSocio() {
 			
 			SocioModelo sm = new SocioModelo();
-			int dni;
+			String dni;
 			Scanner sc = new Scanner(System.in);
 			System.out.println("Introduce el dni(EN MAYUSCULAS)");
-			dni= Integer.parseInt(sc.nextLine());
+			dni= sc.nextLine();
 			sm.borrarSocio(dni);
 			
 			}
