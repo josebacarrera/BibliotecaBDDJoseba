@@ -29,7 +29,10 @@ public class MAIN01 {
 		SocioModelo sm = new SocioModelo();
 		
 		
-		
+		//USUARIO
+				ArrayList <Usuario> Usu = new ArrayList<Usuario>();
+				
+				UsuarioModelo um = new UsuarioModelo();
 		
 		Scanner sc = new Scanner(System.in);
 		//TODO realizar la conexión a la base de datos
@@ -129,6 +132,37 @@ public class MAIN01 {
 				borrarSocio();
 				break;
 				
+			case 11:
+				Usu = um.selectAllUsuarios();
+				for (int i = 0; i < Usu.size(); i++) {
+					
+					System.out.println(Usu.get(i).toString());
+				} 
+				break;
+				
+			case 12:
+				ArrayList<Usuario> Soci3;
+				
+				Soci3=um.buscarUsuarios();
+				
+				for (int i = 0; i < Soci3.size(); i++) {
+					
+					System.out.println(Soci3.get(i).toString());
+				} 
+				break;
+				
+			case 13:
+				um.verUsuario();
+				break;
+		
+			case 14:
+				updateUsuario();
+				break;
+		
+			case 15:
+				borrarUsuario();
+				break;
+				
 			case 0:
 				System.out.println("El programa se ha cerrado....");
 				break;
@@ -147,6 +181,8 @@ public class MAIN01 {
 		// TODO implemnetar el menu
 		
 	}
+	
+	//LIBROS
 	
 	private static void updateLibro() {
 	
@@ -172,7 +208,7 @@ public class MAIN01 {
 		LM.borrarLibro(id);
 		
 		}
-	
+	//SOCIO
 	private static void updateSocio() {
 		
 		SocioModelo sm = new SocioModelo();
@@ -200,6 +236,36 @@ public class MAIN01 {
 			sm.borrarSocio(dni);
 			
 			}
+		
+		//USUARIO
+		
+		private static void updateUsuario() {
+			
+			UsuarioModelo um = new UsuarioModelo();
+			String direccion,poblacion,provincia;
+			String dni;
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Escribe el dni(EN MAYUSCULAS)");
+			dni = sc.nextLine();
+			System.out.println("Escribe la direccion(EN MAYUSCULAS)");
+			direccion = sc.nextLine();
+			System.out.println("Escribe el nombre del pueblo(EN MAYUSCULAS)");
+			poblacion = sc.nextLine();
+			System.out.println("Escribe el nombre de la provincia(EN MAYUSCULAS)");
+			provincia = sc.nextLine();
+			um.actualizarUsuario(direccion,poblacion,provincia,dni); 
+			
+			}
+			private static void borrarUsuario() {
+				
+				UsuarioModelo sm = new UsuarioModelo();
+				String dni;
+				Scanner sc = new Scanner(System.in);
+				System.out.println("Introduce el dni(EN MAYUSCULAS)");
+				dni= sc.nextLine();
+				sm.borrarUsuario(dni);
+				
+				}
 	
 
 }
