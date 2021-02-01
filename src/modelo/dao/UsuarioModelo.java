@@ -122,19 +122,40 @@ public class UsuarioModelo extends Conector{
 
 	}
 
-	public void actualizarUsuario(int numPaginas, String titulo) {
+	public void actualizarUsuario(String nombre, String password) {
 
-		PreparedStatement pst;
-		try {
-			pst = super.conexion.prepareStatement("update usuarios set num_pag=? where titulo=?");
-			pst.setInt(1, numPaginas);
-			pst.setString(2, titulo);
-			pst.executeUpdate();
+			try {
 
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+				System.out.println("Escribe un usuario");
+				Scanner sc = new Scanner(System.in);
+				String elegir;
+				elegir = sc.nextLine();
 
+				Statement st = super.conexion.createStatement();
+				ResultSet rs = st.executeQuery("select * from usuarios where usuario='" + elegir + " and where password='" + elegir + "'");
+
+				if (rs.next()) {
+					Usuario usuario = new Usuario();
+					
+					usuario.setId(rs.getInt("id"));
+					usuario.setNombre(rs.getString("nombre"));
+					usuario.setApellido(rs.getString("apellido"));
+					usuario.setDni(rs.getString("dni"));
+					usuario.setAdmin(rs.getInt("admin"));
+					usuario.setPassword(rs.getString("password"));
+					
+					System.out.println(usuario.toString());
+
+				} else {
+
+					System.out.println("No existe ningun usuario con ese nombre o contraseña");
+				}
+
+			}
+
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
 	}
 
 	public void borrarUsuario(String dni) {

@@ -156,7 +156,7 @@ public class MAIN01 {
 				break;
 		
 			case 14:
-				updateUsuario();
+				updateContraseñaUsuario();
 				break;
 		
 			case 15:
@@ -239,23 +239,33 @@ public class MAIN01 {
 		
 		//USUARIO
 		
-		private static void updateUsuario() {
+		private static void updateContraseñaUsuario() {
 			
 			UsuarioModelo um = new UsuarioModelo();
-			String direccion,poblacion,provincia;
-			String dni;
-			Scanner sc = new Scanner(System.in);
-			System.out.println("Escribe el dni(EN MAYUSCULAS)");
-			dni = sc.nextLine();
-			System.out.println("Escribe la direccion(EN MAYUSCULAS)");
-			direccion = sc.nextLine();
-			System.out.println("Escribe el nombre del pueblo(EN MAYUSCULAS)");
-			poblacion = sc.nextLine();
-			System.out.println("Escribe el nombre de la provincia(EN MAYUSCULAS)");
-			provincia = sc.nextLine();
-			um.actualizarUsuario(direccion,poblacion,provincia,dni); 
+			Scanner sc= new Scanner(System.in);
+			boolean dni;
+			int password;
+
+				
+					while((nombre==nombre)||(password==password)&& (cont<max)){
+						
+						System.out.print("introduzca un usuario: ");
+						nombre=sc.nextInt();
+						System.out.print("Introduzca su password:");
+						password=sc.nextInt();
+						
+						if(cont==3){
+							System.out.println("acceso denegado..");
+							cont=cont-max;
+						}
+					
+						cont++;
+				}
+				System.out.println("usuario y password, correctos...");
+				um.actualizarUsuario(nombre, password);
+		}
 			
-			}
+
 			private static void borrarUsuario() {
 				
 				UsuarioModelo sm = new UsuarioModelo();
